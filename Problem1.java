@@ -10,7 +10,7 @@
 
 class Solution {
 
-    String[] below_20 = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen","Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    String[] lessThan20 = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen","Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
     String[] hundreds = {"","","Twenty","Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
     String[] thousands = {"", "Thousand", "Million", "Billion"};
 
@@ -38,17 +38,16 @@ class Solution {
     public String toWords(int num){
         if(num == 0)
             return "";
-        // If the number is less than 20, we return the corresponding word from below_20 array    
+        // If the number is less than 20, we return the corresponding word from lessThan20 array
         else if(num < 20){
-            return below_20[num%20] +" ";
+            return lessThan20[num] + " ";
         }
-        // If the number is less than 100, we return the corresponding word from hundreds array
         else if(num < 100){
             return hundreds[num/10] + " "+toWords(num%10);
         }
-        // If the number is 100 or more, we return the corresponding word from below_20 array and hundreds array
+        // If the number is 100 or more, we return the corresponding word from lessThan20 array and hundreds array
         else{
-            return below_20[num/100] + " Hundred "+toWords(num%100);
+            return lessThan20[num/100] + " Hundred "+toWords(num%100);
         }
     }
 }
